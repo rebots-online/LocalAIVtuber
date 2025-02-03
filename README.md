@@ -104,6 +104,60 @@ Running on local URL:  http://127.0.0.1:7860
 To create a public link, set `share=True` in `launch()`.
 ```
 
+### Ubuntu 22.04 Setup
+
+#### 1. Download the project from [releases](https://github.com/0Xiaohei0/LocalAIVtuber/releases)
+#### 2. Open terminal in project folder.
+  
+#### 3. Create environment
+  ```
+  python3 -m venv venv
+  source venv/bin/activate
+  ```
+  
+#### 4. Install packages
+  ```
+  pip install --upgrade pip
+  pip install -r requirements.txt
+  pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+  pip install llama-cpp-python
+
+  pip install nltk
+  python -m nltk.downloader -d /usr/local/share/nltk_data all
+  ```
+
+#### 5. Start Program
+   ```
+   python main.py
+   ```
+    When you see this message, go to http://localhost:7860 to see web UI 
+    ```
+    Running on local URL:  http://127.0.0.1:7860
+    To create a public link, set `share=True` in `launch()`.
+    ```
+
+### Notes: 
+
+#### restarting program
+
+To start the program again, run:
+  ```
+  source venv/bin/activate
+   python main.py
+   ```
+
+#### Switching between CPU and GPU
+
+To switch to CPU, run:
+  ```
+  source switch_CPU.sh
+  ```
+
+To switch to GPU, run:
+  ```
+  source switch_GPU.sh
+  ```
+
 ## TODO (This project is still under development and more features are planned)
 - Fetch chat input from streaming platforms (Finished)
 - Improve local LLM (Finetuned model avaliable https://huggingface.co/xiaoheiqaq/Aya-7b-gguf)
